@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auxpo</title>
   <link rel="stylesheet" href="styles/normalize.min.css">
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="styles/style.css">  
 </head>
 <body>
   <div class="content">
@@ -30,8 +31,54 @@
       </nav>
     </header>
     <main class="content-main">
-
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-body">
+              Slide1
+            </div>
+            <div class="swiper-footer">
+              text
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-body">
+              Slide2
+            </div>
+            <div class="swiper-footer">
+              text
+            </div>
+          </div><div class="swiper-slide">
+            <div class="swiper-body">
+              Slide3
+            </div>
+            <div class="swiper-footer">
+              text
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </main>
   </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var count = ['1', '2', '3'];
+    var art = ['Julius Caesar', 'Into the Abyss', 'Discobolous'];
+    var price = ['221', '157', '95'];
+    var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<p class="' + className + '">' + ('#0' + (count[index])) + '<span class="pagination-art">' + (art[index]) + '</span>' + '<span class="pagination-price">' + '<span>' + ((price[index]) + '</span>' + ' ' + 'ETH') + '</span>' + "</p>";
+        },
+      },
+    });
+  </script>
 </body>
 </html>
