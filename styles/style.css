@@ -39,13 +39,13 @@ body, html {
 .content-sidebar__button::after {
   content: '';
   display: block;
+  position: absolute;
   width: 24px;
   height: 24px;
   background-image: url(../img/menu.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
   top: calc(50% - 12px);
   left: calc(50% - 12px);
 }
@@ -131,11 +131,6 @@ body, html {
   opacity: 1;
 }
 
-.content-main {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
 .content-header__link.wallet {
   background-image: url(../img/wallet.svg);
   background-repeat: no-repeat;
@@ -154,27 +149,145 @@ body, html {
   background-size: cover;
 }
 
+.content-main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
 .swiper {
   height: calc(100vh - 98px);
   position: relative;
 }
 
 .swiper-wrapper {
-  width: 500px;
+  flex-basis: 500px;
   position: static;
 }
 
-.swipper-body {
+.swiper-body {
   margin-left: 50%;
+}
+
+.swiper-body__title {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 1.2;
+}
+
+.swiper-body__title span {
+  position: relative;
+}
+
+.swiper-body__title span::before, .swiper-body__title span::after {
+  content: '3D printed';
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.swiper-body__title span::before {
+  top: 0;
+  left: -2px;
+  color: #FB258B;
+}
+
+.swiper-body__title span::after {
+  bottom: -2px;
+  left: 5px;
+  color: #5025FB;
+}
+
+.swiper-body__desc {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #BCBCBC;
+}
+
+.swiper-body__btn {
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 0 0 0 #FFFFFF;
+  transition: .2s;
+  position: relative;
+}
+
+.swiper-body__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-body__buy {
+  font-weight: 700;
+  font-size: 18px;
+  color: #252525;
+  background-color: #FFFFFF;
+  padding: 10px 22px;
+  margin-right: 30px;
+}
+
+.swiper-body__buy:hover {
+  box-shadow: 0 0 0 4px #FFFFFF;
+}
+
+.swiper-body__buy::before, .swiper-body__buy::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.swiper-body__buy::before {
+  background-color: #FB258B;
+  top: -4px;
+  left: -4px;
+}
+
+.swiper-body__buy::after {
+  background-color: #5025FB;
+  bottom: -4px;
+  right: -4px;
+}
+
+.swiper-body__view {
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  padding: 14px 21px 14px 52px;
+}
+
+.swiper-body__view::before {
+  content: '';
+  background-image: url(../img/watch.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 22px;
+  height: 18px;
+  position: absolute;
+  top: calc(50% - 9px);
+  left: 21px;
+}
+
+.swiper-body__view:hover {
+  box-shadow: 0 0 0 2px #FFFFFF;
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
   right: inherit;
-	top: 300px;
+	top: 230px;
 	left: 60px;
 	width: 203px;
 	flex-basis: 203px;
 	position: absolute;
+}
+
+.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 
 .swiper-pagination-bullet-active {
@@ -189,8 +302,6 @@ body, html {
 	font-weight: 800;
 	font-size: 34px;
 	line-height: 1.4;
-  margin-top: 22px;
-  margin-bottom: 22px;
 }
 
 .pagination-art {
@@ -218,5 +329,55 @@ body, html {
   background: linear-gradient(270deg, rgba(66, 66, 66, 0.49) 0%, rgba(66, 66, 66, 0.4753)
   76.04%, rgba(66, 66, 66, 0) 100%);
   backdrop-filter: blur(47.2917px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.swiper-info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 5%;
+  flex-basis: calc(100%-360px);
+  padding-left: 60px;
+}
+
+.swiper-info__author {
+  grid-column: 1 / 6;
+  grid-row: 1 / 2;
+  font-family: 'Caudex', serif;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.swiper-info__item {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.swiper-info__item span {
+  display: block;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 500;
+  color: #BCBCBC;
+  margin-top: 11px;
+}
+
+.swiper-cover {
+  width: 225px;
+  height: 225px;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-cover__img {
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
